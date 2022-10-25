@@ -10,31 +10,34 @@ function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     console.log('playerSelection:', playerSelection)
     console.log('computerSelection:', computerSelection)
-    switch (playerSelection === 'rock') {
-        case computerSelection === 'rock':
-            console.log('test')
-            return tie;
-        case computerSelection === 'paper':
-            return lose;
-        case computerSelection === 'scissors':
-            return win;
-    }
-    switch (playerSelection === 'paper') {
-        case computerSelection === 'rock':
-            return win;
-        case computerSelection === 'paper':
-            return tie;
-        case computerSelection === 'scissors':
-            return lose;
-    }
-    switch (playerSelection === 'scissors') {
-        case computerSelection === 'rock':
-            return lose;
-        case computerSelection === 'paper':
-            return win;
-        case computerSelection === 'scissors':
-            return tie;
+    switch (playerSelection) {
+        case 'rock':
+            switch (computerSelection) {
+                case 'rock':
+                    return tie;
+                case 'paper':
+                    return lose;
+                case 'scissors':
+                    return win;
+            }
+        case 'paper':
+            switch (computerSelection) {
+                case 'rock':
+                    return win;
+                case 'paper':
+                    return tie;
+                case 'scissors':
+                    return lose;
+            }
+        case 'scissors':
+            switch (computerSelection) {
+                case 'rock':
+                    return lose;
+                case 'paper':
+                    return win;
+                case 'scissors':
+                    return tie;
+            }
     }
 }
 
-console.log(playRound('scissors', 'rock'))
