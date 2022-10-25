@@ -8,8 +8,8 @@ function playRound(playerSelection, computerSelection) {
     let win = `You win! ${playerSelection} beats ${computerSelection}`;
     let lose = `You lose! ${playerSelection} loses to ${computerSelection}`;
     playerSelection = playerSelection.toLowerCase();
-    console.log('playerSelection:', playerSelection)
-    console.log('computerSelection:', computerSelection)
+    console.log(`Player's Selection:`, playerSelection)
+    console.log(`Computer's Selection:`, computerSelection)
     switch (playerSelection) {
         case 'rock':
             switch (computerSelection) {
@@ -41,3 +41,13 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+function game() {
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt("Choose rock, paper, or scisssors");
+        console.log(playRound(playerSelection, getComputerChoice()));
+
+
+    }
+}
+
+console.log(game())
