@@ -68,7 +68,6 @@ function game() {
         console.log('You lose. Better luck next time.');
         return resetGame()
     }
-    
 }
 
 // Resets the wins and loses. Calls game() to allow the player to play another game.
@@ -78,6 +77,7 @@ function resetGame() {
     console.log(game())
 }
 
+// Global variables.
 let wins = 0;
 let loses = 0;
 console.log(game())
