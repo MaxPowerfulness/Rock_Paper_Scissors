@@ -55,9 +55,8 @@ function playRound(playerSelection, computerSelection) {
 // Displays round result statement, wins, and loses. Prompts the user to enter their choice for the round.
 // Returns resetGame function
 function game() {
-    for ( ; wins + loses < 5; ) {
-        let playerSelection = prompt("Choose rock, paper, or scisssors");
-        console.log(playRound(playerSelection, getComputerChoice()));
+    while (wins + loses < 5) {
+        playRound(playerSelection, getComputerChoice());
         console.log('Wins:', wins);
         console.log('Loses:', loses);
     }
@@ -74,10 +73,30 @@ function game() {
 function resetGame() {
     wins = 0;
     loses = 0;
-    console.log(game())
 }
+
+// eventListeners for icons
+const rock = document.querySelector('.rock');
+const paper = document.querySelector('.paper');
+const scissors = document.querySelector('.scissors');
+rock.addEventListener('click', function(playerSelection) {
+    playerSelection += 'rock';
+    alert("Player choice is rock");
+    console.log("Player's choice:", playerSelection);
+    });
+paper.addEventListener('click', function(playerSelection) {
+    playerSelection += 'paper';
+    alert("Player choice is paper");
+    console.log("Player's choice:", playerSelection);
+    });
+scissors.addEventListener('click', function(playerSelection) {
+    playerSelection += 'scissors';
+    alert("Player choice is scissors");
+    console.log("Player's choice:", playerSelection);
+    });
+
 
 // Global variables.
 let wins = 0;
 let loses = 0;
-//console.log(game())
+let playerSelection = ""
