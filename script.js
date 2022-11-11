@@ -80,4 +80,4 @@ function resetGame() {
 // Global variables.
 let wins = 0;
 let loses = 0;
-console.log(game())
+//console.log(game())
