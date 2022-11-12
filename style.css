@@ -24,8 +24,9 @@ button {
     width: 200px;
     padding: 8px;
 }
-
+.scoreHeader,
 .score {
     text-align: center;
     font-size: 75px;
+    margin: 0px;
 }

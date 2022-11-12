@@ -18,85 +18,101 @@ function playRound(playerSelection, computerSelection) {
         case 'rock':
             switch (computerSelection) {
                 case 'rock':
-                    return tie;
+                    break ;
                 case 'paper':
-                    loses += 1
-                    return lose;
+                    loses += 1;
+                    break;
                 case 'scissors':
-                    wins += 1
-                    return win;
+                    wins += 1;
+                    break;
             }
+            break;
         case 'paper':
             switch (computerSelection) {
                 case 'rock':
-                    wins += 1
-                    return win;
+                    wins += 1;
+                    break;
                 case 'paper':
-                    return tie;
+                    break;
                 case 'scissors':
-                    loses += 1
-                    return lose;
+                    loses += 1;
+                    break;
             }
+            break;
         case 'scissors':
             switch (computerSelection) {
                 case 'rock':
-                    loses += 1
-                    return lose;
+                    loses += 1;
+                    break;
                 case 'paper':
-                    wins += 1
-                    return win;
+                    wins += 1;
+                    break;
                 case 'scissors':
-                    return tie;
+                    break;
             }
+            break;
+    }
+    displayScore();
+    checkGame();
+    return;
+}
+
+// Checks to see if either the player or opponent has reached 3 wins. 
+// Displays the player's total wins and loses and resets the game.
+function checkGame() {
+    if (wins >= 3) {
+        alert(`Wins: ${wins} 
+Loses: ${loses}
+Congrats! You win!`);
+        resetGame();
+    } else if (loses >= 3) {
+        alert(`Wins: ${wins} 
+Loses: ${loses}
+You lose. Better luck next time.`);
+        resetGame();
     }
 }
 
-// Plays a game of rock, paper, scissors, which consists of 5 rounds. 
-// Displays round result statement, wins, and loses. Prompts the user to enter their choice for the round.
-// Returns resetGame function
-function game() {
-    while (wins + loses < 5) {
-        playRound(playerSelection, getComputerChoice());
-        console.log('Wins:', wins);
-        console.log('Loses:', loses);
-    }
-    if (wins >= 3) {
-        console.log('Congrats! You win!');
-        return resetGame()
-    } else {
-        console.log('You lose. Better luck next time.');
-        return resetGame()
-    }
+// Displays the score for the game.
+function displayScore() {
+    document.querySelector('.score').textContent = `${wins} - ${loses}`;
 }
 
 // Resets the wins and loses. Calls game() to allow the player to play another game.
 function resetGame() {
     wins = 0;
     loses = 0;
+    displayScore();
 }
-
-// eventListeners for icons
-const rock = document.querySelector('.rock');
-const paper = document.querySelector('.paper');
-const scissors = document.querySelector('.scissors');
-rock.addEventListener('click', function(playerSelection) {
-    playerSelection += 'rock';
-    alert("Player choice is rock");
-    console.log("Player's choice:", playerSelection);
-    });
-paper.addEventListener('click', function(playerSelection) {
-    playerSelection += 'paper';
-    alert("Player choice is paper");
-    console.log("Player's choice:", playerSelection);
-    });
-scissors.addEventListener('click', function(playerSelection) {
-    playerSelection += 'scissors';
-    alert("Player choice is scissors");
-    console.log("Player's choice:", playerSelection);
-    });
-
 
 // Global variables.
 let wins = 0;
 let loses = 0;
 let playerSelection = ""
+
+
+// DOM manupulation
+
+// eventListeners for icons
+const rock = document.querySelector('.rock');
+const paper = document.querySelector('.paper');
+const scissors = document.querySelector('.scissors');
+rock.addEventListener('click', function() {
+    playerSelection = "";
+    playerSelection += 'rock';
+    playRound(playerSelection, getComputerChoice())
+    });
+paper.addEventListener('click', function() {
+    playerSelection = "";
+    playerSelection += 'paper';
+    playRound(playerSelection, getComputerChoice())
+    });
+scissors.addEventListener('click', function() {
+    playerSelection = "";
+    playerSelection += 'scissors';
+    playRound(playerSelection, getComputerChoice())
+    });
+
+
+
+
