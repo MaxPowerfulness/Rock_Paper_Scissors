@@ -18,6 +18,9 @@ h1 {
 
 /* Index.html */
 main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
     height: 100vh;
     background: rgb(255, 212, 146);
@@ -31,9 +34,9 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 30%;
     gap: 5px;
-    padding-top: 20px;
+    justify-content: flex-end;
+    height: 20%;
 }
 .image {
     height: 450px;
@@ -54,10 +57,22 @@ main {
 .rules-btn{
     padding: 5px 9px;
     font-size: 10px;
+    width: 50%;
 }
 
 #rules {
     height: 100vh;
+    background: #92bdff;
+    padding: 100px 250px;
+}
+
+.rule-container {
+    background: rgb(255, 212, 146);
+    height: 70%;
+    padding: 20px;
+    border-radius: 15px;
+    line-height: 25px;
+    letter-spacing: 1.5px;
 }
 
 /* Game.html */
