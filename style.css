@@ -105,9 +105,19 @@ main {
     min-height: 80vh;
 }
 
-.choice {
+.choiceButton {
     border: 8px black solid;
     border-radius: 25px;
+    transition: all 0.1s;
+}
+
+.choice {
     width: 200px;
     padding: 8px;
+}
+
+.clicked {
+    transform: scale(1.1);
+    border-color: red;
+    box-shadow: 0 0 10px red;
 }

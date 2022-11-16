@@ -3,6 +3,11 @@ let wins = 0;
 let loses = 0;
 let playerSelection = "";
 let gameText = document.querySelector('.gameText');
+const choiceButtons = document.querySelectorAll('.choiceButton');
+const choiceButton = document.querySelector('.choiceButton');
+const rock = document.querySelector('.rock');
+const paper = document.querySelector('.paper');
+const scissors = document.querySelector('.scissors');
 
 
 // Randomly returns either rock, paper, or scissors as the computer's choice.
@@ -77,9 +82,11 @@ Displays the player's total wins and loses and resets the game.
 function checkGame() {
     if (wins >= 3) {
         gameText.innerHTML = 'Congrats! You have successfully defended yourself from the pirates.';
+        disableButtons();
         playAgain();
     } else if (loses >= 3) {
         gameText.innerHTML = 'Your booty is plundered and ship is destoryed. Better luck next time.';
+        disableButtons();
         playAgain();
     }
 }
@@ -105,35 +112,56 @@ function playAgain() {
                            padding: 10px 18px; cursor: pointer`);
     playAgain.addEventListener('click', function() {
         resetGame();
+        enableButtons();
         document.body.removeChild(playAgain);
     })
     const choices = document.querySelector('.choices');
     document.body.insertBefore(playAgain, choices);
 }
 
+// Disables the rock, paper, and scissors button when the game is over.
+function disableButtons() {
+    choiceButtons.forEach((choice) => {
+        choice.setAttribute('style', 'pointer-events: none;');
+    });
+};
 
-// DOM manupulation
+// Enables the rock, paper, and scissors button when the game is reset.
+function enableButtons() {
+    choiceButtons.forEach((choice) => {
+        choice.setAttribute('style', 'pointer-events: auto;');
+    });
+}
 
-// eventListeners for icons
-const rock = document.querySelector('.rock');
-const paper = document.querySelector('.paper');
-const scissors = document.querySelector('.scissors');
+// Removes the indication of clicking a button
+function removeTransition(i) {
+    if (i.propertyName !== 'transform') return; // skips it if it is not a transform
+    this.classList.remove('clicked')
+}
+
+// Global DOM manipulation
+
+// Runs a round of rock paper scissors with the user's input as the selected icon. 
 rock.addEventListener('click', function() {
     playerSelection = "";
     playerSelection += 'rock';
+    document.querySelector('.choiceButton.r').classList.add('clicked'); // Adds indication of button being clicked.
     playRound(playerSelection, getComputerChoice())
     });
 paper.addEventListener('click', function() {
     playerSelection = "";
     playerSelection += 'paper';
+    document.querySelector('.choiceButton.p').classList.add('clicked'); // Adds indication of button being clicked.
     playRound(playerSelection, getComputerChoice())
     });
 scissors.addEventListener('click', function() {
     playerSelection = "";
     playerSelection += 'scissors';
+    document.querySelector('.choiceButton.s').classList.add('clicked'); // Adds indication of button being clicked.
     playRound(playerSelection, getComputerChoice())
     });
 
-
+// For removing button clicking indicator
+choiceButtons.forEach(button => button.addEventListener('transitionend', removeTransition));
 
 
