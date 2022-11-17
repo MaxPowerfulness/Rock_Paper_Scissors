@@ -1,8 +1,18 @@
 /* To all */
+@font-face {
+    font-family: 'Ayematey';
+    src: url('html/Ayematey-rgxay.ttf');
+}
+
+* {
+    font-family: 'Ayematey';
+}
+
 button {
     border: none;
     border-radius: 20px;
 }
+
 a {
     text-decoration: none;
     color: black;
@@ -32,6 +42,7 @@ main {
 
 .greeting {
     padding: 20px;
+    font-size: 50px;
 }
 
 .button-holder{
@@ -55,12 +66,12 @@ main {
 
 .game-btn{
     padding: 10px 18px;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .rules-btn{
     padding: 5px 9px;
-    font-size: 10px;
+    font-size: 20px;
     width: 50%;
 }
 
@@ -68,6 +79,7 @@ main {
     height: 100vh;
     background: #92bdff;
     padding: 100px 250px;
+    font-size: 30px;
 }
 
 .rule-container {
@@ -79,16 +91,26 @@ main {
     letter-spacing: 1.5px;
 }
 
+.legend li {
+    margin: 30px;
+}
+
 /* Game.html */
+#gameBody {
+    background-image: linear-gradient(#7fcdff, #1da2d8);
+}
+
+
 .scoreHeader,
 .score {
     font-size: 50px;
     margin: 0px;
+    padding-top: 5px;
 }
 
 .gameText {
     text-align: center;
-    font-size: 30px;
+    font-size: 40px;
     padding-top: 100px;
     white-space: pre-line;
 
@@ -102,13 +124,14 @@ main {
     align-items: center;
     justify-content: center;
     gap: 120px;
-    min-height: 80vh;
+    min-height: 75vh;
 }
 
 .choiceButton {
     border: 8px black solid;
     border-radius: 25px;
-    transition: all 0.1s;
+    transition: all 0.2s;
+    background: #ccccc7;
 }
 
 .choice {
@@ -118,6 +141,6 @@ main {
 
 .clicked {
     transform: scale(1.1);
-    border-color: red;
-    box-shadow: 0 0 10px red;
+    border-color: rgb(214, 175, 0);
+    box-shadow: 0 0 10px rgb(214, 175, 0);
 }

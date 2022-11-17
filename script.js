@@ -33,12 +33,14 @@ function playRound(playerSelection, computerSelection) {
         case 'rock':
             switch (computerSelection) {
                 case 'rock':
-                    gameText.innerHTML = 'You trade hits';
+                    gameText.innerHTML = '<br> <br> You trade hits.';
                     break ;
                 case 'paper':
+                    gameText.innerHTML = '<br> <br> You got hit! Get ready to retaliate.';
                     loses += 1;
                     break;
                 case 'scissors':
+                    gameText.innerHTML = "<br> <br> You hit the enemy! Don't let up.";
                     wins += 1;
                     break;
             }
@@ -46,12 +48,14 @@ function playRound(playerSelection, computerSelection) {
         case 'paper':
             switch (computerSelection) {
                 case 'rock':
+                    gameText.innerHTML = "<br> <br> You hit the enemy! Don't let up.";
                     wins += 1;
                     break;
                 case 'paper':
-                    gameText.innerHTML = 'You trade hits';
+                    gameText.innerHTML = '<br> <br> You trade hits.';
                     break;
                 case 'scissors':
+                    gameText.innerHTML = '<br> <br> You got hit! Get ready to retaliate.';    
                     loses += 1;
                     break;
             }
@@ -59,13 +63,15 @@ function playRound(playerSelection, computerSelection) {
         case 'scissors':
             switch (computerSelection) {
                 case 'rock':
+                    gameText.innerHTML = '<br> <br> You got hit! Get ready to retaliate.';
                     loses += 1;
                     break;
                 case 'paper':
+                    gameText.innerHTML = "<br> <br> You hit the enemy! Don't let up.";
                     wins += 1;
                     break;
                 case 'scissors':
-                    gameText.innerHTML = 'You trade hits';
+                    gameText.innerHTML = '<br> <br> You trade hits.';
                     break;
             }
             break;
@@ -81,11 +87,11 @@ Displays the player's total wins and loses and resets the game.
 */
 function checkGame() {
     if (wins >= 3) {
-        gameText.innerHTML = 'Congrats! You have successfully defended yourself from the pirates.';
+        gameText.innerHTML = 'Congrats! You have successfully defended yourself from the pirates. <br>';
         disableButtons();
         playAgain();
     } else if (loses >= 3) {
-        gameText.innerHTML = 'Your booty is plundered and ship is destoryed. Better luck next time.';
+        gameText.innerHTML = 'Your booty is plundered and ship destoryed. Better luck next time. <br>';
         disableButtons();
         playAgain();
     }
@@ -108,8 +114,8 @@ function resetGame() {
 function playAgain() {
     const playAgain = document.createElement('button');
     playAgain.innerHTML = 'Play Again';
-    playAgain.setAttribute('style', `font-size: 20px; border: none; border-radius: 20px;
-                           padding: 10px 18px; cursor: pointer`);
+    playAgain.setAttribute('style', `font-size: 30px; border: 2px solid black; border-radius: 20px;
+                           padding: 10px 18px; cursor: pointer; background: #ccccc7`);
     playAgain.addEventListener('click', function() {
         resetGame();
         enableButtons();
