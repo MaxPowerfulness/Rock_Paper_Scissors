@@ -58,12 +58,14 @@ main {
     width: 500px;
 }
 
+.button-container button,
 .rules-btn,
 .game-btn {
     background: #92bdff;
     border: 1px white solid;
 }
 
+.button-container button,
 .game-btn{
     padding: 10px 18px;
     font-size: 30px;
@@ -83,6 +85,8 @@ main {
 }
 
 .rule-container {
+    display: flex;
+    flex-direction: column;
     background: rgb(255, 212, 146);
     height: 70%;
     padding: 20px;
@@ -91,8 +95,19 @@ main {
     letter-spacing: 1.5px;
 }
 
+.rule-container p {
+    margin-bottom: 0px;
+}
+
 .legend li {
     margin: 30px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    align-items: center;
 }
 
 /* Game.html */
